@@ -42,15 +42,28 @@ function PostForm() {
     <div className="section-box">
       <h2>Add New Post</h2>
       <form onSubmit={handleSubmit}>
-        {/* Title Input */}
-        <div className="form-group">
-          <label>Title:</label>
-          <input
-            type="text"
-            placeholder="Enter post title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
+        <div className="form-row">
+          {/* Title Input */}
+          <div className="form-group">
+            <label>Title:</label>
+            <input
+              type="text"
+              placeholder="e.g. My First Redux Post"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
+
+          {/* Platform Dropdown */}
+          <div className="form-group">
+            <label>Platform:</label>
+            <select value={platform} onChange={(e) => setPlatform(e.target.value)}>
+              <option value="Twitter">Twitter</option>
+              <option value="LinkedIn">LinkedIn</option>
+              <option value="Instagram">Instagram</option>
+              <option value="Facebook">Facebook</option>
+            </select>
+          </div>
         </div>
 
         {/* Content Textarea */}
@@ -58,21 +71,10 @@ function PostForm() {
           <label>Content:</label>
           <textarea
             rows="3"
-            placeholder="Enter post content"
+            placeholder="Write your post content here..."
             value={content}
             onChange={(e) => setContent(e.target.value)}
           />
-        </div>
-
-        {/* Platform Dropdown */}
-        <div className="form-group">
-          <label>Platform:</label>
-          <select value={platform} onChange={(e) => setPlatform(e.target.value)}>
-            <option value="Twitter">Twitter</option>
-            <option value="LinkedIn">LinkedIn</option>
-            <option value="Instagram">Instagram</option>
-            <option value="Facebook">Facebook</option>
-          </select>
         </div>
 
         {/* Submit Button */}

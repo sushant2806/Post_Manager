@@ -3,7 +3,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectAllPosts, deletePost, fetchPosts } from '../store/slices/postSlice';
 
-const PostList = React.memo(function PostList() {
+function PostList() {
   const dispatch = useDispatch();
 
   // Retrieve posts array from Redux store using selectAllPosts selector
@@ -23,43 +23,59 @@ const PostList = React.memo(function PostList() {
     dispatch(fetchPosts());
   };
 
+  // Helper to assign platform badge styles
+  const getBadgeClass = (platform) => {
+    switch (platform) {
+      case 'Twitter':
+        return 'badge badge-twitter';
+      case 'LinkedIn':
+        return 'badge badge-linkedin';
+      case 'Instagram':
+        return 'badge badge-instagram';
+      case 'Facebook':
+        return 'badge badge-facebook';
+      default:
+        return 'badge';
+    }
+  };
+
   return (
     <div className="section-box">
-      <h2>All Posts</h2>
+      <h2>All Posts ({posts.length})</h2>
 
-      {/* Button to test createAsyncThunk */}
-      <button onClick={handleFetchPosts} style={{ marginBottom: '15px' }}>
-        Sample Posts 
+      {/* Standard button without custom green styling */}
+      <button onClick={handleFetchPosts} style={{ marginBottom: '16px' }}>
+        Fetch Sample Posts
       </button>
 
       {/* Show loading state */}
-      {status === 'loading' && <p style={{ color: '#2563eb', fontWeight: 500 }}>Loading posts </p>}
+      {status === 'loading' && <p style={{ color: '#2563eb', fontWeight: 500 }}>Loading sample posts...</p>}
 
       {/* Show error state */}
-      {status === 'failed' && <p style={{ color: '#dc2626' }}>Error: {error}</p>}
+      {status === 'failed' && <p style={{ color: '#ef4444' }}>Error: {error}</p>}
 
       {/* Display message if post list is empty */}
       {posts.length === 0 && status !== 'loading' ? (
-        <p style={{ color: '#6b7280' }}>No posts available. Add one above or click 'Fetch Sample Posts'.</p>
+        <p style={{ color: '#6b7280', fontStyle: 'italic' }}>No posts available. Add one above or click 'Fetch Sample Posts'.</p>
       ) : (
         <table>
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Title</th>
-              <th>Content</th>
-              <th>Platform</th>
-              <th>Action</th>
+              <th style={{ width: '8%' }}>ID</th>
+              <th style={{ width: '25%' }}>Title</th>
+              <th style={{ width: '42%' }}>Content</th>
+              <th style={{ width: '15%' }}>Platform</th>
+              <th style={{ width: '10%' }}>Action</th>
             </tr>
           </thead>
           <tbody>
-            {posts.map((post, index) => (
+            {posts.map((post) => (
               <tr key={post.id}>
-                <td>{index + 1}</td>
+                <td><code>{post.id}</code></td>
                 <td><strong>{post.title}</strong></td>
                 <td>{post.content}</td>
                 <td>
-                  <span className="platform-badge">{post.platform}</span>
+                  <span className={getBadgeClass(post.platform)}>{post.platform}</span>
                 </td>
                 <td>
                   <button className="delete-btn" onClick={() => handleDelete(post.id)}>
@@ -73,6 +89,6 @@ const PostList = React.memo(function PostList() {
       )}
     </div>
   );
-});
+}
 
 export default PostList;
