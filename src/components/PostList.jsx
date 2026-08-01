@@ -45,7 +45,7 @@ function PostList() {
 
       {/* Standard button without custom green styling */}
       <button onClick={handleFetchPosts} style={{ marginBottom: '16px' }}>
-        Fetch Sample Posts
+        Sample Posts
       </button>
 
       {/* Show loading state */}
