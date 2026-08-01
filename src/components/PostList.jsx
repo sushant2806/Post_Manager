@@ -29,7 +29,7 @@ const PostList = React.memo(function PostList() {
 
       {/* Button to test createAsyncThunk */}
       <button onClick={handleFetchPosts} style={{ marginBottom: '15px' }}>
-        Fetch Sample Posts 
+        Sample Posts 
       </button>
 
       {/* Show loading state */}
