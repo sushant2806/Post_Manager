@@ -56,7 +56,7 @@ function PostList() {
 
       {/* Display message if post list is empty */}
       {posts.length === 0 && status !== 'loading' ? (
-        <p style={{ color: '#6b7280', fontStyle: 'italic' }}>No posts available. Add one above or click 'Fetch Sample Posts'.</p>
+        <p style={{ color: '#6b7280', fontStyle: 'italic' }}>No posts available. Add one above or click 'Sample Posts'.</p>
       ) : (
         <table>
           <thead>
