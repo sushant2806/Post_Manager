@@ -11,7 +11,7 @@ function ShortPosts() {
     <div className="section-box">
       <h2>Short Posts (Content Length &lt; 100 Characters)</h2>
       <p style={{ fontSize: '0.85rem', color: '#6b7280', marginBottom: '12px' }}>
-        {/* <em>Note: This section uses a custom Redux selector (createSelector) to filter short posts.</em> */}
+        
       </p>
 
       {shortPosts.length === 0 ? (
