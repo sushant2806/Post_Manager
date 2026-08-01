@@ -48,7 +48,7 @@ function PostForm() {
             <label>Title:</label>
             <input
               type="text"
-              placeholder="e.g. My First Redux Post"
+              placeholder="e.g. My First Post"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
