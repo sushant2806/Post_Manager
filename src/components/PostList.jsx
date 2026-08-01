@@ -3,7 +3,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectAllPosts, deletePost, fetchPosts } from '../store/slices/postSlice';
 
-function PostList() {
+const PostList = React.memo(function PostList() {
   const dispatch = useDispatch();
 
   // Retrieve posts array from Redux store using selectAllPosts selector
@@ -53,9 +53,9 @@ function PostList() {
             </tr>
           </thead>
           <tbody>
-            {posts.map((post) => (
+            {posts.map((post, index) => (
               <tr key={post.id}>
-                <td>{post.id}</td>
+                <td>{index + 1}</td>
                 <td><strong>{post.title}</strong></td>
                 <td>{post.content}</td>
                 <td>
@@ -73,6 +73,6 @@ function PostList() {
       )}
     </div>
   );
-}
+});
 
 export default PostList;
