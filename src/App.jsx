@@ -7,9 +7,10 @@ import ShortPosts from './components/ShortPosts';
 function App() {
   return (
     <div className="container">
-      {/* College Experiment Header */}
-      <header style={{ marginBottom: '20px', borderBottom: '2px solid black', paddingBottom: '10px' }}>
-        <h1>Redux-Based Content State Management</h1>
+      {/* Clean Header without 'Experiment 2 -' or 'Project Name:' prefixes */}
+      <header>
+        <h1>Simple Post Manager</h1>
+        <h3>Redux-Based Content State Management</h3>
       </header>
 
       {/* Main Content Area */}
