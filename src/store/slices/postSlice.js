@@ -23,38 +23,32 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
   // Return a promise that resolves after 1.5 seconds delay
   return new Promise((resolve) => {
     setTimeout(() => {
-      // 3 sample posts as requested
-      const samplePosts = [
-        {
-          id: 1,
-          title: "Morning Coffee",
-          content: "Starting my day with a hot cup of coffee.",
-          platform: "Twitter",
-        },
-        {
-          id: 2,
-          title: "React Practice",
-          content: "Today I learned Redux Toolkit and created my first global state management project.",
-          platform: "LinkedIn",
-        },
-        {
-          id: 3,
-          title: "Sunset View",
-          content: "Beautiful sunset at the beach with friends.",
-          platform: "Instagram",
-        },
-        {
-          id: 4,
-          title: "Weekend Plans",
-          content: "Planning a short trip this weekend to relax and enjoy nature.",
-          platform: "Facebook",
-        },
-        {
-          id: 5,
-          title: "Coding Challenge",
-          content: "Solved two Java programming problems today and improved my problem-solving skills.",
-          platform: "LinkedIn",
-        },
+      // sample posts as requested
+     const samplePosts = [
+      {
+        id: 1,
+        title: "Morning Coffee",
+        content: "Starting my day with a hot cup of coffee.",
+        platform: "Twitter",
+      },
+      {
+        id: 2,
+        title: "React Practice",
+        content: "Today I learned Redux Toolkit and created my first global state management project.",
+        platform: "LinkedIn",
+      },
+      {
+        id: 3,
+        title: "Sunset View",
+        content: "Beautiful sunset at the beach with friends.",
+        platform: "Instagram",
+      },
+      {
+        id: 4,
+        title: "Weekend Plans",
+        content: "Planning a short trip this weekend to relax and enjoy nature.",
+        platform: "Facebook",
+      },
       ];
       resolve(samplePosts);
     }, 1500);
