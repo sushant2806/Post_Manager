@@ -11,6 +11,14 @@ function PostForm() {
   const [content, setContent] = useState('');
   const [platform, setPlatform] = useState('Twitter');
 
+  const platforms = [
+    { name: 'Twitter', key: 'twitter' },
+    { name: 'LinkedIn', key: 'linkedin' },
+    { name: 'Instagram', key: 'instagram' },
+    { name: 'Facebook', key: 'facebook' },
+    { name: 'Blog', key: 'blog' },
+  ];
+
   // Handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -24,8 +32,8 @@ function PostForm() {
     // Create new post object
     const newPost = {
       id: Date.now().toString(), // Simple unique ID using current timestamp
-      title: title,
-      content: content,
+      title: title.trim(),
+      content: content.trim(),
       platform: platform,
     };
 
@@ -40,29 +48,37 @@ function PostForm() {
 
   return (
     <div className="section-box">
-      <h2>Add New Post</h2>
+      <h2>✏️ Add New Post</h2>
       <form onSubmit={handleSubmit}>
-        <div className="form-row">
-          {/* Title Input */}
-          <div className="form-group">
-            <label>Title:</label>
-            <input
-              type="text"
-              placeholder="e.g. My First Post"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </div>
+        {/* Title Input */}
+        <div className="form-group">
+          <label>Title:</label>
+          <input
+            type="text"
+            placeholder="e.g. My First Post"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
 
-          {/* Platform Dropdown */}
-          <div className="form-group">
-            <label>Platform:</label>
-            <select value={platform} onChange={(e) => setPlatform(e.target.value)}>
-              <option value="Twitter">Twitter</option>
-              <option value="LinkedIn">LinkedIn</option>
-              <option value="Instagram">Instagram</option>
-              <option value="Facebook">Facebook</option>
-            </select>
+        {/* Platform Selector matching Image 1 */}
+        <div className="form-group platform-container">
+          <label className="platform-label">Platform:</label>
+          <div className="platform-pills">
+            {platforms.map((p) => {
+              const isSelected = platform === p.name;
+              return (
+                <button
+                  key={p.name}
+                  type="button"
+                  className={`platform-pill pill-${p.key} ${isSelected ? 'active' : ''}`}
+                  onClick={() => setPlatform(p.name)}
+                >
+                  {p.name}
+                  {isSelected && <span className="pill-check"> ✓</span>}
+                </button>
+              );
+            })}
           </div>
         </div>
 
@@ -78,10 +94,11 @@ function PostForm() {
         </div>
 
         {/* Submit Button */}
-        <button type="submit">Add Post</button>
+        <button type="submit"> + Add Post</button>
       </form>
     </div>
   );
 }
 
 export default PostForm;
+

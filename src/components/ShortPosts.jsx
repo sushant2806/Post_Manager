@@ -18,6 +18,8 @@ function ShortPosts() {
         return 'badge badge-instagram';
       case 'Facebook':
         return 'badge badge-facebook';
+      case 'Blog':
+        return 'badge badge-blog';
       default:
         return 'badge';
     }
