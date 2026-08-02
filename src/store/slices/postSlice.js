@@ -23,34 +23,48 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
   // Return a promise that resolves after 1.5 seconds delay
   return new Promise((resolve) => {
     setTimeout(() => {
-      // sample posts as requested
-     const samplePosts = [
-      {
-        id: 1,
-        title: "Morning Coffee",
-        content: "Starting my day with a hot cup of coffee.",
-        platform: "Twitter",
-      },
-      {
-        id: 2,
-        title: "React Practice",
-        content: "Today I learned Redux Toolkit and created my first global state management project.",
-        platform: "LinkedIn",
-      },
-      {
-        id: 3,
-        title: "Sunset View",
-        content: "Beautiful sunset at the beach with friends.",
-        platform: "Instagram",
-      },
-      {
-        id: 4,
-        title: "Weekend Plans",
-        content: "Planning a short trip this weekend to relax and enjoy nature.",
-        platform: "Facebook",
-      },
+      // 3 sample posts as requested
+      const samplePosts = [
+        {
+          id: 1,
+          title: "Morning",
+          content: "Good morning everyone!",
+          platform: "Twitter",
+        },
+        {
+          id: 2,
+          title: "Coffee",
+          content: "Coffee makes every morning better.",
+          platform: "Facebook",
+        },
+        {
+          id: 3,
+          title: "Workout",
+          content: "Completed my morning workout.",
+          platform: "Instagram",
+        },
+        {
+          id: 4,
+          title: "Sunset",
+          content:
+            "The sunset this evening painted the sky with beautiful shades of orange, pink, and purple. Sitting by the lake and watching the colors change slowly was the most relaxing part of my day.",
+          platform: "Twitter",
+        },
+        {
+          id: 5,
+          title: "Travel",
+          content: "Planning my next adventure.",
+          platform: "Facebook",
+        },
+        {
+          id: 6,
+          title: "Weekend Getaway",
+          content:
+            "Spent the weekend exploring the mountains with friends. The fresh air, beautiful views, and peaceful atmosphere made it the perfect escape from the busy city life. Can't wait to visit again!",
+          platform: "Facebook",
+        },
       ];
-      resolve(samplePosts);
+resolve(samplePosts);
     }, 1500);
   });
 });
